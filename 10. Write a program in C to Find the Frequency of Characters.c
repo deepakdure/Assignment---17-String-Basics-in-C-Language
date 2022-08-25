@@ -2,34 +2,20 @@
 #include <stdio.h>
 int main()
 {
-    char str[50], s[50];
-    int i, j, k, l, count;
-    printf("enter a string :-");
-    gets(str);
-    for (l = 0; l < str[l]; l++)
-        ;
-    for (i = 0; i < l; i++)
+    char s[100];
+    printf("enter a string = ");
+    gets(s);
+    int str[256] = {0};
+    int i = 0;
+    while (s[i] != '\0')
     {
-        count = 1;
-        if (s[i] != -1)
-        {
-            for (j = 1 + i; j < l; j++)
-            {
-                if (str[i] == str[j])
-                {
-                    count++;
-                    s[j] = -1;
-                }
-            }
-            s[i] = count;
-        }
+        str[s[i++]]++;
     }
-    for (i = 0; i < l; i++)
-    {
-        if (s[i] != -1)
+    printf("repeated characters are = ");
+    for (i = 0; i < 256; i++)
+        if (str[i] != 0)
         {
-            printf("Character %c = %d\n", str[i], s[i]);
+            printf("%2c ==> %d\n", i, str[i]);
         }
-    }
     return 0;
 }
